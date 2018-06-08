@@ -1,1 +1,1 @@
-# TronokHarca_gyakorlas
+This repo is for practicing for the basic exam.
