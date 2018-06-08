@@ -1,0 +1,22 @@
+SELECT house, count(*)
+FROM characters
+WHERE dead <> 'true'
+and organization = ''
+GROUP BY house
+
+SELECT *
+FROM characters
+WHERE dead <> 'true'
+AND bio LIKE '%hero%'
+
+SELECT name
+FROM characters
+WHERE organization in ('nightwatch')
+AND house = ''
+
+FROM characters
+WHERE house not in ('lannister')
+AND dead <> 'true'
+AND organization <> ('royalguard')
+AND bio not LIKE ('%Lennister%')
+AND bio not LIKE ("%King's Landing%")
