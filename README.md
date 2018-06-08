@@ -1,0 +1,1 @@
+# TronokHarca_gyakorlas
