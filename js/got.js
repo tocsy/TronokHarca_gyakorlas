@@ -105,7 +105,7 @@ function createHtmlElements(characters) {
         var cardDivElement = document.createElement('div');
         cardDivElement.classList.add("card");
         canvasDivElement.appendChild(cardDivElement);
-        cardDivElement.addEventListener("click", createCardClickEvent(char), true) //fejre való klikkeléshez ez kell
+        cardDivElement.addEventListener("click", createCardClickEvent(char), false) //fejre való klikkeléshez ez kell
 
         var cardDivElementImage = document.createElement("img");
         cardDivElement.appendChild(cardDivElementImage);
@@ -146,13 +146,15 @@ function updateDetailsPanelByCharacter(Character) {
     detailsDivElementBio.classList.add("characterDetials")
     detailsDivElementBio.innerText = Character.bio;
 
-
-
 };
 
 function createCardClickEvent(selectedCharacter) {
     return function () {
-        updateDetailsPanelByCharacter(selectedCharacter)
+        updateDetailsPanelByCharacter(selectedCharacter);
+        for (var i = 0; i < event.currentTarget.parentElement.children.length; i++) {
+            event.currentTarget.parentElement.children[i].classList.remove("highlighted");
+        }
+        event.currentTarget.classList.add("highlighted");
     };
 };
 

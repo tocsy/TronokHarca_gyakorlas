@@ -61,6 +61,13 @@ body {
     width: 12.5%;
     line-height: 1.4em;
     min-height: 2.8em;
+    z-index: 99;
+}
+
+.card.highlighted img,
+.card.highlighted:hover img {
+    box-shadow: 9px 9px 100px 9px red;
+    border-radius: 50%;
 }
 
 .card img {
