@@ -129,10 +129,24 @@ function updateDetailsPanelByCharacter(Character) {
     detailsDivElementImage.src = Character.picture;
     detailsDivElementImage.alt = Character.name;
 
+    var detailsDivElementName = document.createElement('div');
+    detailsDivElement.appendChild(detailsDivElementName);
+    detailsDivElementName.classList.add("characterName")
+    detailsDivElementName.innerText = Character.name;
+
+    if (Character.house && Character.house != "") {
+        var detailsDivElementHouse = document.createElement('img');
+        detailsDivElement.appendChild(detailsDivElementHouse);
+        detailsDivElementHouse.classList.add("characterHouse")
+        detailsDivElementHouse.src = "/assets/houses/" + Character.house + ".png"
+    };
+
     var detailsDivElementBio = document.createElement('div');
     detailsDivElement.appendChild(detailsDivElementBio);
     detailsDivElementBio.classList.add("characterDetials")
     detailsDivElementBio.innerText = Character.bio;
+
+
 
 };
 
@@ -145,6 +159,11 @@ function createCardClickEvent(selectedCharacter) {
 function searchCharacter(characters) {
     var searchTextBox = document.querySelector("#panel footer input")
     var filter = searchTextBox.value;
+
+    if (filter == '') {
+        return;
+    };
+
     var filtered;
 
     for (var i = 0; i < characters.length; i++) {
